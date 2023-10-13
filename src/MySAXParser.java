@@ -22,6 +22,16 @@ public class MySAXParser extends DefaultHandler implements MyParser {
         this.statisticsStrategy = statisticsStrategy;
     }
 
+    @Override
+    public void parse(String xml) throws ParserConfigurationException, SAXException, IOException {
+
+        SAXParserFactory factory = SAXParserFactory.newInstance();
+        SAXParser parser = factory.newSAXParser();
+
+        parser.parse(xml, this);
+
+    }
+
     public void startElement(String uri, String localName, String qName, Attributes attributes) {
         if ("student".equals(qName)) {
             student = new Student();
@@ -57,17 +67,6 @@ public class MySAXParser extends DefaultHandler implements MyParser {
 
     public void characters(char[] ch, int start, int length) {
         text.append(ch, start, length);
-    }
-
-
-    @Override
-    public void parse(String xml) throws ParserConfigurationException, SAXException, IOException {
-
-        SAXParserFactory factory = SAXParserFactory.newInstance();
-        SAXParser parser = factory.newSAXParser();
-
-        parser.parse(xml, this);
-
     }
 
 }

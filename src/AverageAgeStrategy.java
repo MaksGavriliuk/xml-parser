@@ -1,8 +1,10 @@
 import java.util.List;
 
 public class AverageAgeStrategy implements StatisticsStrategy {
+
     @Override
     public void calculateStatistics(List<Student> students) {
+
         int totalAge = 0;
         int studentCount = students.size();
 

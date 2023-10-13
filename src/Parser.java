@@ -1,11 +1,10 @@
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
-import javax.xml.parsers.SAXParser;
-import javax.xml.parsers.SAXParserFactory;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 
 class Parser {
     private final List<ParserObserver> observers = new ArrayList<>();

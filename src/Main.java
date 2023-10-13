@@ -8,10 +8,11 @@ public class Main {
 
             ParserFactory parserFactory = new ParserFactory();
             Parser parser = new Parser();
-            LoggingObserver loggingObserver = new LoggingObserver();
 
-            parser.addObserver(loggingObserver);
-            parser.parse(pathToFile, parserFactory.createParser("dom"), new AverageAgeStrategy());
+            parser.addObserver(new LoggingObserver());
+            parser.addObserver(new SecondLoggingObserver());
+
+            parser.parse(pathToFile, parserFactory.createParser("sax"), new AverageAgeStrategy());
 
         } catch (Exception e) {
             e.printStackTrace();
